@@ -3,285 +3,623 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InsureCompare - Find the Best Insurance Policies</title>
+    <title>Squote - Compare Commercial Insurance Quotes Instantly</title>
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="app-container">
-        <!-- Left Sidebar -->
-        <aside class="sidebar">
-            <div class="sidebar-logo">
-                <span class="logo-text">IC</span>
-            </div>
-            <nav class="sidebar-nav">
-                <button class="nav-icon active" data-section="home" title="Dashboard">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <rect x="3" y="3" width="7" height="7" rx="1"/>
-                        <rect x="14" y="3" width="7" height="7" rx="1"/>
-                        <rect x="3" y="14" width="7" height="7" rx="1"/>
-                        <rect x="14" y="14" width="7" height="7" rx="1"/>
-                    </svg>
-                </button>
-                <button class="nav-icon" data-section="policies" title="My Policies">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    </svg>
-                </button>
-                <button class="nav-icon" data-section="settings" title="Settings">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="12" cy="12" r="3"/>
-                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
-                    </svg>
-                </button>
-            </nav>
-            <div class="sidebar-categories">
-                <h3>INSURANCE</h3>
-                <ul class="category-list">
-                    <li class="category-item active" data-type="all">
-                        <span class="category-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="3" y="3" width="18" height="18" rx="2"/>
-                                <path d="M3 9h18M9 21V9"/>
-                            </svg>
-                        </span>
-                        <span>All Policies</span>
-                    </li>
-                    <li class="category-item" data-type="auto">
-                        <span class="category-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 17h14M5 17a2 2 0 01-2-2v-4a1 1 0 011-1h1l2-4h10l2 4h1a1 1 0 011 1v4a2 2 0 01-2 2M5 17a2 2 0 00-2 2v1h2M19 17a2 2 0 012 2v1h-2"/>
-                                <circle cx="7.5" cy="17" r="1.5"/>
-                                <circle cx="16.5" cy="17" r="1.5"/>
-                            </svg>
-                        </span>
-                        <span>Auto</span>
-                    </li>
-                    <li class="category-item" data-type="home">
-                        <span class="category-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
-                                <polyline points="9 22 9 12 15 12 15 22"/>
-                            </svg>
-                        </span>
-                        <span>Home</span>
-                    </li>
-                    <li class="category-item" data-type="life">
-                        <span class="category-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
-                            </svg>
-                        </span>
-                        <span>Life</span>
-                    </li>
-                    <li class="category-item" data-type="health">
-                        <span class="category-icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
-                            </svg>
-                        </span>
-                        <span>Health</span>
-                    </li>
-                </ul>
-            </div>
-        </aside>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <a href="/" class="logo">Squote</a>
+            <a href="#" class="help-link">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"/>
+                    <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+                Need Help
+            </a>
+        </div>
+    </header>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Top Header -->
-            <header class="main-header">
-                <div class="search-container">
-                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <circle cx="11" cy="11" r="8"/>
-                        <path d="M21 21l-4.35-4.35"/>
-                    </svg>
-                    <input type="text" id="search-input" placeholder="Search policies, companies...">
-                </div>
-                <div class="header-actions">
-                    <button class="notification-btn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/>
-                        </svg>
-                    </button>
-                    <div class="user-avatar">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2364748b'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E" alt="User">
+    <!-- Landing Page -->
+    <main id="landing-page" class="landing-page">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>Compare Commercial Insurance Quotes Instantly</h1>
+                <p class="hero-subtitle">Get <strong>the most accurate</strong>, real-time commercial insurance quotes—powered by direct carrier integrations.</p>
+                <button class="btn-primary" onclick="startQuote()">Start Your Quote</button>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">How It Works</h2>
+                <div class="steps-list">
+                    <div class="step-item">
+                        <span class="step-icon"></span>
+                        <span>Step 1: Enter business details</span>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-icon"></span>
+                        <span>Step 2: Compare quotes from multiple insurers</span>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-icon"></span>
+                        <span>Step 3: Customize coverage & adjust deductibles</span>
+                    </div>
+                    <div class="step-item">
+                        <span class="step-icon"></span>
+                        <span>Step 4: Bind policy or save for later</span>
                     </div>
                 </div>
-            </header>
+            </div>
+        </section>
 
-            <!-- Content Area -->
-            <div class="content-area">
-                <div class="content-header">
-                    <h1>Insurance Compare</h1>
-                    <button class="add-device-btn" id="filter-toggle">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
-                        </svg>
-                        Filters
-                    </button>
-                </div>
-
-                <!-- Filter Panel (Collapsible) -->
-                <div class="filter-panel" id="filter-panel">
-                    <div class="filter-group">
-                        <label>Price Range (Monthly)</label>
-                        <div class="price-inputs">
-                            <input type="number" id="min-price" placeholder="Min $">
-                            <span>-</span>
-                            <input type="number" id="max-price" placeholder="Max $">
+        <!-- Key Features -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Key Features Section (Why Choose Us?)</h2>
+                <div class="features-list">
+                    <div class="feature-item">
+                        <span class="feature-icon"></span>
+                        <div>
+                            <strong>Real-Time & Accurate Quotes</strong> – We connect directly with top carriers to ensure up-to-date pricing and coverage details—no outdated estimates.
                         </div>
                     </div>
-                    <div class="filter-group">
-                        <label>Coverage Level</label>
-                        <select id="coverage-level">
-                            <option value="all">All Levels</option>
-                            <option value="basic">Basic</option>
-                            <option value="standard">Standard</option>
-                            <option value="premium">Premium</option>
-                        </select>
+                    <div class="feature-item">
+                        <span class="feature-icon"></span>
+                        <div>
+                            <strong>Customizable Coverage</strong> – Adjust limits, endorsements, and deductibles.
+                        </div>
                     </div>
-                    <div class="filter-group">
-                        <label>Rating</label>
-                        <select id="rating-filter">
-                            <option value="all">All Ratings</option>
-                            <option value="4.5">4.5+ Stars</option>
-                            <option value="4">4+ Stars</option>
-                            <option value="3.5">3.5+ Stars</option>
-                        </select>
+                    <div class="feature-item">
+                        <span class="feature-icon"></span>
+                        <div>
+                            <strong>Integrated Binding & Policy Management</strong> – Quote, bind, and manage policies in one place.
+                        </div>
                     </div>
-                    <div class="filter-group">
-                        <label>Sort By</label>
-                        <select id="sort-by">
-                            <option value="price-low">Price: Low to High</option>
-                            <option value="price-high">Price: High to Low</option>
-                            <option value="rating">Highest Rated</option>
-                            <option value="name">Company Name</option>
-                        </select>
+                    <div class="feature-item">
+                        <span class="feature-icon"></span>
+                        <div>
+                            <strong>Multi-Carrier Comparison</strong> – Access top-rated insurers in a single dashboard.
+                        </div>
                     </div>
-                    <div class="filter-actions">
-                        <button id="apply-filters" class="btn-apply">Apply</button>
-                        <button id="reset-filters" class="btn-reset">Reset</button>
-                    </div>
-                </div>
-
-                <!-- Policy Section -->
-                <div class="policy-section">
-                    <div class="section-title">
-                        <h2 id="section-heading">ALL POLICIES</h2>
-                        <span id="results-count" class="results-badge">27 policies</span>
-                    </div>
-                    <div id="insurance-grid" class="policy-grid">
-                        <!-- Cards will be dynamically populated -->
+                    <div class="feature-item">
+                        <span class="feature-icon"></span>
+                        <div>
+                            <strong>Agent & Broker-Friendly</strong> – Seamless integration with AMS & CRM systems.
+                        </div>
                     </div>
                 </div>
             </div>
-        </main>
+        </section>
 
-        <!-- Right Sidebar -->
-        <aside class="right-sidebar">
-            <h2>Quick Stats</h2>
-
-            <!-- Savings Calculator -->
-            <div class="stats-card">
-                <div class="stats-header">
-                    <span class="stats-icon">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="1" x2="12" y2="23"/>
-                            <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
-                        </svg>
-                    </span>
-                    <span>POTENTIAL SAVINGS</span>
-                </div>
-                <div class="stats-value">
-                    <span class="big-number">$500</span>
-                    <span class="sub-text">/year average</span>
-                </div>
-                <div class="stats-toggle">
-                    <span>Show comparison</span>
-                    <label class="toggle">
-                        <input type="checkbox" id="show-comparison">
-                        <span class="slider"></span>
-                    </label>
-                </div>
-            </div>
-
-            <!-- Market Overview -->
-            <div class="market-card">
-                <div class="market-header">
-                    <span>MARKET OVERVIEW</span>
-                    <span class="market-status active">Live Data</span>
-                </div>
-                <div class="market-stats">
-                    <div class="market-stat">
-                        <span class="stat-label">Companies</span>
-                        <span class="stat-value">50+</span>
+        <!-- Supported Business Types -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Supported Business Types</h2>
+                <div class="business-types-list">
+                    <div class="business-type-item">
+                        <span class="type-icon"></span>
+                        <span>BOP</span>
                     </div>
-                    <div class="market-stat">
-                        <span class="stat-label">Policies</span>
-                        <span class="stat-value">200+</span>
+                    <div class="business-type-item">
+                        <span class="type-icon"></span>
+                        <span>General Liability</span>
+                    </div>
+                    <div class="business-type-item">
+                        <span class="type-icon"></span>
+                        <span>Worker's Compensation</span>
+                    </div>
+                    <div class="business-type-item">
+                        <span class="type-icon"></span>
+                        <span>Commercial Auto</span>
+                    </div>
+                    <div class="business-type-item">
+                        <span class="type-icon"></span>
+                        <span>Umbrella</span>
+                    </div>
+                    <div class="business-type-item">
+                        <span class="type-icon"></span>
+                        <span>Cyber</span>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Top Providers -->
-            <div class="providers-section">
-                <h3>TOP PROVIDERS</h3>
-                <ul class="provider-list" id="provider-list">
-                    <li class="provider-item">
-                        <span class="provider-name">State Farm</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="9 18 15 12 9 6"/>
-                        </svg>
-                    </li>
-                    <li class="provider-item">
-                        <span class="provider-name">Geico</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="9 18 15 12 9 6"/>
-                        </svg>
-                    </li>
-                    <li class="provider-item">
-                        <span class="provider-name">Progressive</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="9 18 15 12 9 6"/>
-                        </svg>
-                    </li>
-                    <li class="provider-item">
-                        <span class="provider-name">Allstate</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="9 18 15 12 9 6"/>
-                        </svg>
-                    </li>
-                    <li class="provider-item">
-                        <span class="provider-name">USAA</span>
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="9 18 15 12 9 6"/>
-                        </svg>
-                    </li>
-                </ul>
+        <!-- Carrier & Partner -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Carrier & Partner</h2>
+                <div class="carriers-logos">
+                    <div class="carrier-logo">TRAVELERS<sup>J</sup></div>
+                    <div class="carrier-logo hartford">
+                        <span class="hartford-icon"></span>
+                        <span>THE<br>HARTFORD</span>
+                    </div>
+                    <div class="carrier-logo next">NEXT</div>
+                    <div class="carrier-logo chubb">CHUBB</div>
+                </div>
             </div>
-        </aside>
-    </div>
+        </section>
 
-    <!-- Policy Detail Modal -->
-    <div id="policy-modal" class="modal">
-        <div class="modal-content">
-            <button class="close-modal">&times;</button>
-            <div id="modal-body">
-                <!-- Modal content will be populated dynamically -->
+        <!-- CTA Section -->
+        <section class="section cta-section">
+            <div class="container">
+                <h2 class="section-title">Start Comparing BOP Quotes Now</h2>
+                <button class="btn-primary" onclick="startQuote()">Start Your Quote</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Quote Form Wizard -->
+    <main id="quote-wizard" class="quote-wizard" style="display: none;">
+        <!-- Progress Steps -->
+        <div class="progress-container">
+            <div class="progress-steps">
+                <div class="progress-step active" data-step="1">
+                    <div class="step-number">1</div>
+                    <div class="step-label">Policy Details</div>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="2">
+                    <div class="step-number">2</div>
+                    <div class="step-label">Business Details</div>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="3">
+                    <div class="step-number">3</div>
+                    <div class="step-label">Building Details</div>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="4">
+                    <div class="step-number">4</div>
+                    <div class="step-label">Compare</div>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step" data-step="5">
+                    <div class="step-number">5</div>
+                    <div class="step-label">Review and Submit</div>
+                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Mobile Menu Toggle -->
-    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="12" x2="21" y2="12"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <line x1="3" y1="18" x2="21" y2="18"/>
-        </svg>
-    </button>
+        <!-- Step 1: Policy Details -->
+        <div class="form-step active" id="step-1">
+            <div class="form-container">
+                <h2>Select Policy for your Client</h2>
+                <div class="policy-grid">
+                    <div class="policy-card" data-policy="bop">
+                        <div class="policy-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="8" y="20" width="32" height="24" rx="2"/>
+                                <path d="M8 28h32"/>
+                                <path d="M16 20V12h16v8"/>
+                                <path d="M20 12V8h8v4"/>
+                            </svg>
+                        </div>
+                        <span class="policy-name">Business Owner Policy</span>
+                    </div>
+                    <div class="policy-card" data-policy="gl">
+                        <div class="policy-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M24 4L6 12v12c0 11 18 20 18 20s18-9 18-20V12L24 4z"/>
+                            </svg>
+                        </div>
+                        <span class="policy-name">General Liability</span>
+                    </div>
+                    <div class="policy-card" data-policy="wc">
+                        <div class="policy-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="24" cy="12" r="6"/>
+                                <path d="M12 44v-8a12 12 0 0124 0v8"/>
+                                <path d="M18 28l-4 8"/>
+                                <path d="M30 28l4 8"/>
+                            </svg>
+                        </div>
+                        <span class="policy-name">Worker's Compensation</span>
+                    </div>
+                    <div class="policy-card" data-policy="ca">
+                        <div class="policy-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="6" y="18" width="36" height="16" rx="2"/>
+                                <circle cx="14" cy="34" r="4"/>
+                                <circle cx="34" cy="34" r="4"/>
+                                <path d="M6 26h4"/>
+                                <path d="M38 26h4"/>
+                            </svg>
+                        </div>
+                        <span class="policy-name">Commercial Auto</span>
+                    </div>
+                    <div class="policy-card" data-policy="umbrella">
+                        <div class="policy-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M24 4c-11 0-20 9-20 20h40c0-11-9-20-20-20z"/>
+                                <path d="M24 24v16"/>
+                                <path d="M20 44c0-2.2 1.8-4 4-4s4 1.8 4 4"/>
+                            </svg>
+                        </div>
+                        <span class="policy-name">Umbrella</span>
+                    </div>
+                    <div class="policy-card" data-policy="cyber">
+                        <div class="policy-icon">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="8" y="8" width="32" height="24" rx="2"/>
+                                <path d="M8 32h32"/>
+                                <circle cx="24" cy="20" r="6"/>
+                                <path d="M24 14v2"/>
+                                <path d="M24 24v2"/>
+                                <path d="M18 20h2"/>
+                                <path d="M28 20h2"/>
+                            </svg>
+                        </div>
+                        <span class="policy-name">Cyber</span>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button class="btn-secondary" onclick="goToLanding()">Back</button>
+                    <button class="btn-primary" onclick="nextStep()" id="step1-continue" disabled>Continue</button>
+                </div>
+            </div>
+        </div>
 
-    <script src="js/data.js"></script>
+        <!-- Step 2: Business Details -->
+        <div class="form-step" id="step-2">
+            <div class="form-container">
+                <h2>Provide Business Details</h2>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>Business name</label>
+                        <input type="text" id="business-name" placeholder="">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Doing Business As (DBA optional)</label>
+                        <input type="text" id="dba" placeholder="">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Address of Insured</label>
+                        <input type="text" id="address" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Zip code</label>
+                        <input type="text" id="zipcode" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>City</label>
+                        <input type="text" id="city" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>State</label>
+                        <input type="text" id="state" placeholder="">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Is mailing address same as the location address?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="same-address" value="yes"> Yes
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="same-address" value="no"> No
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Email</label>
+                        <input type="email" id="email" placeholder="">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Class code / What is the primary business?</label>
+                        <input type="text" id="class-code" placeholder="">
+                        <span class="form-hint">Search by keyword, SIC code, NAICS code or segment</span>
+                    </div>
+                    <div class="form-group full-width">
+                        <button class="btn-text">+ Add additional class code</button>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button class="btn-secondary" onclick="prevStep()">Back</button>
+                    <button class="btn-primary" onclick="nextStep()">Continue</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 2b: Additional Business Details -->
+        <div class="form-step" id="step-2b">
+            <div class="form-container">
+                <h2>Additional Business Details</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Year Business Started</label>
+                        <input type="text" id="year-started" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Annual revenue</label>
+                        <input type="text" id="annual-revenue" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Number of employees</label>
+                        <input type="text" id="num-employees" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Total payroll</label>
+                        <input type="text" id="total-payroll" placeholder="">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Any claims or losses for the last 3 years</label>
+                        <input type="text" id="claims-losses" placeholder="">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Describe business operation</label>
+                        <input type="text" id="business-operation" placeholder="">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>FEIN number</label>
+                        <input type="text" id="fein" placeholder="">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Select Business / Legal Entity</label>
+                        <select id="legal-entity">
+                            <option value="">Select...</option>
+                            <option value="sole">Sole Proprietorship</option>
+                            <option value="llc">LLC</option>
+                            <option value="corp">Corporation</option>
+                            <option value="partnership">Partnership</option>
+                        </select>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Website (Optional)</label>
+                        <input type="text" id="website" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Policy effective date</label>
+                        <input type="date" id="effective-date" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Policy expiration date</label>
+                        <input type="date" id="expiration-date" placeholder="">
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button class="btn-secondary" onclick="prevStep()">Back</button>
+                    <button class="btn-primary" onclick="nextStep()">Continue</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 3: Location and Building -->
+        <div class="form-step" id="step-3">
+            <div class="form-container">
+                <h2>Location and Building</h2>
+                <div class="location-info">
+                    <p><strong>Primary Location:</strong> <span id="primary-location">278 Maplewood Drive, Willowbrook, NY 12567, USA</span></p>
+                    <p><strong>Class code:</strong> <span id="display-class-code">278 Maplewood Drive, Willowbrook, NY 12567, USA</span></p>
+                </div>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Year build</label>
+                        <input type="text" id="year-build" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Number of stories</label>
+                        <input type="text" id="num-stories" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Total building area (sq. ft.)</label>
+                        <input type="text" id="building-area" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Area insurer occupied (sq. ft.)</label>
+                        <input type="text" id="area-occupied" placeholder="">
+                    </div>
+                    <div class="form-group">
+                        <label>Construction type</label>
+                        <select id="construction-type">
+                            <option value="">Select...</option>
+                            <option value="frame">Frame</option>
+                            <option value="masonry">Masonry</option>
+                            <option value="fire-resistive">Fire Resistive</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Square footage occupied</label>
+                        <select id="sq-footage-occupied">
+                            <option value="">Select...</option>
+                            <option value="0-25">0-25%</option>
+                            <option value="26-50">26-50%</option>
+                            <option value="51-75">51-75%</option>
+                            <option value="76-100">76-100%</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Burglar alarm type</label>
+                        <select id="burglar-alarm">
+                            <option value="">Select...</option>
+                            <option value="none">None</option>
+                            <option value="local">Local</option>
+                            <option value="central">Central Station</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Fire alarm type</label>
+                        <select id="fire-alarm">
+                            <option value="">Select...</option>
+                            <option value="none">None</option>
+                            <option value="local">Local</option>
+                            <option value="central">Central Station</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h3 class="subsection-title">Underwriting questions</h3>
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>Does the insured own the building?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="own-building" value="yes"> Yes
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="own-building" value="no"> No
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Does this building have a sprinkler system?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="sprinkler" value="yes"> Yes
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="sprinkler" value="no"> No
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Is the building's roof flat?</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="flat-roof" value="yes"> Yes
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="flat-roof" value="no"> No
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="add-buttons">
+                    <button class="btn-text">+ Add Building</button>
+                    <button class="btn-text">+ Add Location</button>
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn-secondary" onclick="prevStep()">Back</button>
+                    <button class="btn-primary" onclick="nextStep()">Continue</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 4: Compare -->
+        <div class="form-step" id="step-4">
+            <div class="form-container">
+                <h2>Compare Quotes</h2>
+                <p class="compare-subtitle">Based on your information, here are your quote options from our carrier partners.</p>
+
+                <div class="quotes-grid">
+                    <div class="quote-card">
+                        <div class="quote-header">
+                            <span class="carrier-name">TRAVELERS</span>
+                            <span class="quote-badge recommended">Recommended</span>
+                        </div>
+                        <div class="quote-price">
+                            <span class="price">$2,450</span>
+                            <span class="period">/year</span>
+                        </div>
+                        <ul class="quote-features">
+                            <li>General Liability: $1M/$2M</li>
+                            <li>Property: $500,000</li>
+                            <li>Business Income: Included</li>
+                            <li>Deductible: $1,000</li>
+                        </ul>
+                        <button class="btn-primary btn-full" onclick="selectQuote('travelers')">Select Quote</button>
+                    </div>
+
+                    <div class="quote-card">
+                        <div class="quote-header">
+                            <span class="carrier-name">THE HARTFORD</span>
+                        </div>
+                        <div class="quote-price">
+                            <span class="price">$2,680</span>
+                            <span class="period">/year</span>
+                        </div>
+                        <ul class="quote-features">
+                            <li>General Liability: $1M/$2M</li>
+                            <li>Property: $500,000</li>
+                            <li>Business Income: Included</li>
+                            <li>Deductible: $500</li>
+                        </ul>
+                        <button class="btn-outline btn-full" onclick="selectQuote('hartford')">Select Quote</button>
+                    </div>
+
+                    <div class="quote-card">
+                        <div class="quote-header">
+                            <span class="carrier-name">NEXT</span>
+                        </div>
+                        <div class="quote-price">
+                            <span class="price">$2,150</span>
+                            <span class="period">/year</span>
+                        </div>
+                        <ul class="quote-features">
+                            <li>General Liability: $1M/$2M</li>
+                            <li>Property: $400,000</li>
+                            <li>Business Income: $50,000</li>
+                            <li>Deductible: $1,500</li>
+                        </ul>
+                        <button class="btn-outline btn-full" onclick="selectQuote('next')">Select Quote</button>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn-secondary" onclick="prevStep()">Back</button>
+                    <button class="btn-primary" onclick="nextStep()" id="step4-continue" disabled>Continue</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Step 5: Review and Submit -->
+        <div class="form-step" id="step-5">
+            <div class="form-container">
+                <h2>Review and Submit</h2>
+                <p class="review-subtitle">Please review your information before submitting.</p>
+
+                <div class="review-sections">
+                    <div class="review-section">
+                        <h3>Selected Policy</h3>
+                        <div class="review-content" id="review-policy"></div>
+                    </div>
+
+                    <div class="review-section">
+                        <h3>Business Information</h3>
+                        <div class="review-content" id="review-business"></div>
+                    </div>
+
+                    <div class="review-section">
+                        <h3>Location & Building</h3>
+                        <div class="review-content" id="review-location"></div>
+                    </div>
+
+                    <div class="review-section">
+                        <h3>Selected Quote</h3>
+                        <div class="review-content" id="review-quote"></div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn-secondary" onclick="prevStep()">Back</button>
+                    <button class="btn-primary" onclick="submitQuote()">Submit Application</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">Squote</div>
+            <nav class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Accessibility Statement</a>
+                <a href="#">About Us</a>
+            </nav>
+            <div class="footer-copyright">&copy;2024, All right reserved.</div>
+        </div>
+    </footer>
+
     <script src="js/app.js"></script>
 </body>
 </html>
