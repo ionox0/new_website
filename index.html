@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InsureCompare - Find the Best Insurance Policies</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🛡️</span>
+                <span class="logo-text">InsureCompare</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active" data-section="home">Home</a></li>
+                <li><a href="#" data-section="auto">Auto Insurance</a></li>
+                <li><a href="#" data-section="home-insurance">Home Insurance</a></li>
+                <li><a href="#" data-section="life">Life Insurance</a></li>
+                <li><a href="#" data-section="health">Health Insurance</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Compare Insurance Policies & Save</h1>
+                <p>Find the best coverage at the lowest prices from top insurance providers</p>
+                <div class="search-box">
+                    <select id="insurance-type">
+                        <option value="all">All Insurance Types</option>
+                        <option value="auto">Auto Insurance</option>
+                        <option value="home">Home Insurance</option>
+                        <option value="life">Life Insurance</option>
+                        <option value="health">Health Insurance</option>
+                    </select>
+                    <input type="text" id="search-input" placeholder="Search companies or policies...">
+                    <button id="search-btn">Compare Now</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="stat-item">
+                <span class="stat-number">50+</span>
+                <span class="stat-label">Insurance Companies</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">200+</span>
+                <span class="stat-label">Policy Options</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">$500</span>
+                <span class="stat-label">Average Savings</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">1M+</span>
+                <span class="stat-label">Happy Customers</span>
+            </div>
+        </section>
+
+        <!-- Filters Section -->
+        <section class="filters-section">
+            <div class="filters-container">
+                <h2>Filter Policies</h2>
+                <div class="filters">
+                    <div class="filter-group">
+                        <label>Price Range (Monthly)</label>
+                        <div class="price-range">
+                            <input type="number" id="min-price" placeholder="Min $" min="0">
+                            <span>to</span>
+                            <input type="number" id="max-price" placeholder="Max $" min="0">
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <label>Coverage Level</label>
+                        <select id="coverage-level">
+                            <option value="all">All Levels</option>
+                            <option value="basic">Basic</option>
+                            <option value="standard">Standard</option>
+                            <option value="premium">Premium</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Rating</label>
+                        <select id="rating-filter">
+                            <option value="all">All Ratings</option>
+                            <option value="4.5">4.5+ Stars</option>
+                            <option value="4">4+ Stars</option>
+                            <option value="3.5">3.5+ Stars</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label>Sort By</label>
+                        <select id="sort-by">
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Highest Rated</option>
+                            <option value="name">Company Name</option>
+                        </select>
+                    </div>
+                    <button id="apply-filters" class="filter-btn">Apply Filters</button>
+                    <button id="reset-filters" class="filter-btn secondary">Reset</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insurance Cards Section -->
+        <section class="insurance-cards-section">
+            <div class="section-header">
+                <h2>Available Policies</h2>
+                <span id="results-count" class="results-count">Showing all policies</span>
+            </div>
+            <div id="insurance-grid" class="insurance-grid">
+                <!-- Cards will be dynamically populated -->
+            </div>
+        </section>
+
+        <!-- Company Comparison Table -->
+        <section class="comparison-section">
+            <h2>Quick Comparison</h2>
+            <div class="comparison-table-wrapper">
+                <table id="comparison-table" class="comparison-table">
+                    <thead>
+                        <tr>
+                            <th>Company</th>
+                            <th>Type</th>
+                            <th>Coverage</th>
+                            <th>Monthly Premium</th>
+                            <th>Deductible</th>
+                            <th>Rating</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="comparison-tbody">
+                        <!-- Table rows will be dynamically populated -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Featured Companies -->
+        <section class="featured-companies">
+            <h2>Trusted Insurance Partners</h2>
+            <div class="company-logos">
+                <div class="company-logo">
+                    <span class="company-icon">🏢</span>
+                    <span>StateFarm</span>
+                </div>
+                <div class="company-logo">
+                    <span class="company-icon">🦎</span>
+                    <span>Geico</span>
+                </div>
+                <div class="company-logo">
+                    <span class="company-icon">☂️</span>
+                    <span>Allstate</span>
+                </div>
+                <div class="company-logo">
+                    <span class="company-icon">🔔</span>
+                    <span>Liberty Mutual</span>
+                </div>
+                <div class="company-logo">
+                    <span class="company-icon">🏛️</span>
+                    <span>Progressive</span>
+                </div>
+                <div class="company-logo">
+                    <span class="company-icon">🌟</span>
+                    <span>Nationwide</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="how-it-works">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Select Insurance Type</h3>
+                    <p>Choose the type of insurance you need - auto, home, life, or health.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Compare Policies</h3>
+                    <p>Review coverage options, prices, and ratings from multiple providers.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Get a Quote</h3>
+                    <p>Request personalized quotes from your preferred insurance companies.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Save Money</h3>
+                    <p>Choose the best policy and start saving on your insurance today.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Policy Detail Modal -->
+    <div id="policy-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div id="modal-body">
+                <!-- Modal content will be populated dynamically -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>InsureCompare</h4>
+                <p>Your trusted source for comparing insurance policies from top providers.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Insurance Types</h4>
+                <ul>
+                    <li><a href="#">Auto Insurance</a></li>
+                    <li><a href="#">Home Insurance</a></li>
+                    <li><a href="#">Life Insurance</a></li>
+                    <li><a href="#">Health Insurance</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Resources</h4>
+                <ul>
+                    <li><a href="#">Insurance Guide</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 InsureCompare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
