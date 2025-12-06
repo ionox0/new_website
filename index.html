@@ -5,9 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Squote - Compare Commercial Insurance Quotes Instantly</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Animated Background -->
+    <div class="bg-gradient">
+        <div class="bg-blob bg-blob-1"></div>
+        <div class="bg-blob bg-blob-2"></div>
+        <div class="bg-blob bg-blob-3"></div>
+    </div>
+
     <!-- Header -->
     <header class="header">
         <div class="header-container">
@@ -18,7 +25,7 @@
                     <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
                     <line x1="12" y1="17" x2="12.01" y2="17"/>
                 </svg>
-                Need Help
+                Need Help?
             </a>
         </div>
     </header>
@@ -28,32 +35,37 @@
         <!-- Hero Section -->
         <section class="hero">
             <div class="container">
-                <h1>Compare Commercial Insurance Quotes Instantly</h1>
-                <p class="hero-subtitle">Get <strong>the most accurate</strong>, real-time commercial insurance quotes—powered by direct carrier integrations.</p>
-                <button class="btn-primary" onclick="startQuote()">Start Your Quote</button>
+                <h1>Compare Insurance.<br><span class="highlight">Instantly.</span></h1>
+                <p class="hero-subtitle">Get <strong>real-time quotes</strong> from top carriers. No waiting, no hassle—just the best coverage for your business.</p>
+                <button class="btn-primary" onclick="startQuote()">
+                    Get Started
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
             </div>
         </section>
 
         <!-- How It Works -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title">How It Works</h2>
+                <h2 class="section-title">How It <span class="accent">Works</span></h2>
                 <div class="steps-list">
                     <div class="step-item">
-                        <span class="step-icon"></span>
-                        <span>Step 1: Enter business details</span>
+                        <div class="step-icon">1</div>
+                        <span class="step-text">Enter your business details in under 2 minutes</span>
                     </div>
                     <div class="step-item">
-                        <span class="step-icon"></span>
-                        <span>Step 2: Compare quotes from multiple insurers</span>
+                        <div class="step-icon">2</div>
+                        <span class="step-text">Compare quotes from multiple top-rated carriers</span>
                     </div>
                     <div class="step-item">
-                        <span class="step-icon"></span>
-                        <span>Step 3: Customize coverage & adjust deductibles</span>
+                        <div class="step-icon">3</div>
+                        <span class="step-text">Customize coverage and adjust deductibles</span>
                     </div>
                     <div class="step-item">
-                        <span class="step-icon"></span>
-                        <span>Step 4: Bind policy or save for later</span>
+                        <div class="step-icon">4</div>
+                        <span class="step-text">Bind your policy instantly or save for later</span>
                     </div>
                 </div>
             </div>
@@ -62,37 +74,61 @@
         <!-- Key Features -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title">Key Features Section (Why Choose Us?)</h2>
+                <h2 class="section-title">Why Choose <span class="accent">Squote</span>?</h2>
                 <div class="features-list">
                     <div class="feature-item">
-                        <span class="feature-icon"></span>
-                        <div>
-                            <strong>Real-Time & Accurate Quotes</strong> – We connect directly with top carriers to ensure up-to-date pricing and coverage details—no outdated estimates.
+                        <div class="feature-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12,6 12,12 16,14"/>
+                            </svg>
                         </div>
+                        <strong>Real-Time Quotes</strong>
+                        <div>Direct carrier integrations ensure accurate, up-to-date pricing—no outdated estimates.</div>
                     </div>
                     <div class="feature-item">
-                        <span class="feature-icon"></span>
-                        <div>
-                            <strong>Customizable Coverage</strong> – Adjust limits, endorsements, and deductibles.
+                        <div class="feature-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
                         </div>
+                        <strong>Customizable Coverage</strong>
+                        <div>Adjust limits, endorsements, and deductibles to match your exact needs.</div>
                     </div>
                     <div class="feature-item">
-                        <span class="feature-icon"></span>
-                        <div>
-                            <strong>Integrated Binding & Policy Management</strong> – Quote, bind, and manage policies in one place.
+                        <div class="feature-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22,4 12,14.01 9,11.01"/>
+                            </svg>
                         </div>
+                        <strong>Instant Binding</strong>
+                        <div>Quote, bind, and manage all your policies in one streamlined platform.</div>
                     </div>
                     <div class="feature-item">
-                        <span class="feature-icon"></span>
-                        <div>
-                            <strong>Multi-Carrier Comparison</strong> – Access top-rated insurers in a single dashboard.
+                        <div class="feature-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <path d="M3 9h18"/>
+                                <path d="M9 21V9"/>
+                            </svg>
                         </div>
+                        <strong>Multi-Carrier Comparison</strong>
+                        <div>Access top-rated insurers in a single, easy-to-use dashboard.</div>
                     </div>
                     <div class="feature-item">
-                        <span class="feature-icon"></span>
-                        <div>
-                            <strong>Agent & Broker-Friendly</strong> – Seamless integration with AMS & CRM systems.
+                        <div class="feature-icon">
+                            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
                         </div>
+                        <strong>Agent & Broker Friendly</strong>
+                        <div>Seamless integration with your existing AMS & CRM systems.</div>
                     </div>
                 </div>
             </div>
@@ -101,11 +137,11 @@
         <!-- Supported Business Types -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title">Supported Business Types</h2>
+                <h2 class="section-title">Coverage <span class="accent">Options</span></h2>
                 <div class="business-types-list">
                     <div class="business-type-item">
                         <span class="type-icon"></span>
-                        <span>BOP</span>
+                        <span>Business Owner Policy</span>
                     </div>
                     <div class="business-type-item">
                         <span class="type-icon"></span>
@@ -125,7 +161,7 @@
                     </div>
                     <div class="business-type-item">
                         <span class="type-icon"></span>
-                        <span>Cyber</span>
+                        <span>Cyber Insurance</span>
                     </div>
                 </div>
             </div>
@@ -134,9 +170,9 @@
         <!-- Carrier & Partner -->
         <section class="section">
             <div class="container">
-                <h2 class="section-title">Carrier & Partner</h2>
+                <h2 class="section-title">Trusted <span class="accent">Partners</span></h2>
                 <div class="carriers-logos">
-                    <div class="carrier-logo">TRAVELERS<sup>J</sup></div>
+                    <div class="carrier-logo">TRAVELERS</div>
                     <div class="carrier-logo hartford">
                         <span class="hartford-icon"></span>
                         <span>THE<br>HARTFORD</span>
@@ -150,8 +186,13 @@
         <!-- CTA Section -->
         <section class="section cta-section">
             <div class="container">
-                <h2 class="section-title">Start Comparing BOP Quotes Now</h2>
-                <button class="btn-primary" onclick="startQuote()">Start Your Quote</button>
+                <h2 class="section-title">Ready to <span class="accent">Save</span>?</h2>
+                <button class="btn-primary" onclick="startQuote()">
+                    Start Your Quote
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </button>
             </div>
         </section>
     </main>
@@ -163,17 +204,17 @@
             <div class="progress-steps">
                 <div class="progress-step active" data-step="1">
                     <div class="step-number">1</div>
-                    <div class="step-label">Policy Details</div>
+                    <div class="step-label">Policy</div>
                 </div>
                 <div class="progress-line"></div>
                 <div class="progress-step" data-step="2">
                     <div class="step-number">2</div>
-                    <div class="step-label">Business Details</div>
+                    <div class="step-label">Business</div>
                 </div>
                 <div class="progress-line"></div>
                 <div class="progress-step" data-step="3">
                     <div class="step-number">3</div>
-                    <div class="step-label">Building Details</div>
+                    <div class="step-label">Location</div>
                 </div>
                 <div class="progress-line"></div>
                 <div class="progress-step" data-step="4">
@@ -183,7 +224,7 @@
                 <div class="progress-line"></div>
                 <div class="progress-step" data-step="5">
                     <div class="step-number">5</div>
-                    <div class="step-label">Review and Submit</div>
+                    <div class="step-label">Review</div>
                 </div>
             </div>
         </div>
@@ -191,7 +232,7 @@
         <!-- Step 1: Policy Details -->
         <div class="form-step active" id="step-1">
             <div class="form-container">
-                <h2>Select Policy for your Client</h2>
+                <h2>Select Your Policy Type</h2>
                 <div class="policy-grid">
                     <div class="policy-card" data-policy="bop">
                         <div class="policy-icon">
@@ -270,31 +311,31 @@
         <!-- Step 2: Business Details -->
         <div class="form-step" id="step-2">
             <div class="form-container">
-                <h2>Provide Business Details</h2>
+                <h2>Business Details</h2>
                 <div class="form-grid">
                     <div class="form-group full-width">
                         <label>Business name</label>
-                        <input type="text" id="business-name" placeholder="">
+                        <input type="text" id="business-name" placeholder="Enter your business name">
                     </div>
                     <div class="form-group full-width">
-                        <label>Doing Business As (DBA optional)</label>
-                        <input type="text" id="dba" placeholder="">
+                        <label>Doing Business As (DBA) - Optional</label>
+                        <input type="text" id="dba" placeholder="Enter DBA if applicable">
                     </div>
                     <div class="form-group full-width">
-                        <label>Address of Insured</label>
-                        <input type="text" id="address" placeholder="">
+                        <label>Business Address</label>
+                        <input type="text" id="address" placeholder="Street address">
                     </div>
                     <div class="form-group">
-                        <label>Zip code</label>
-                        <input type="text" id="zipcode" placeholder="">
+                        <label>Zip Code</label>
+                        <input type="text" id="zipcode" placeholder="12345">
                     </div>
                     <div class="form-group">
                         <label>City</label>
-                        <input type="text" id="city" placeholder="">
+                        <input type="text" id="city" placeholder="City">
                     </div>
                     <div class="form-group">
                         <label>State</label>
-                        <input type="text" id="state" placeholder="">
+                        <input type="text" id="state" placeholder="State">
                     </div>
                     <div class="form-group full-width">
                         <label>Is mailing address same as the location address?</label>
@@ -309,11 +350,11 @@
                     </div>
                     <div class="form-group full-width">
                         <label>Email</label>
-                        <input type="email" id="email" placeholder="">
+                        <input type="email" id="email" placeholder="email@company.com">
                     </div>
                     <div class="form-group full-width">
-                        <label>Class code / What is the primary business?</label>
-                        <input type="text" id="class-code" placeholder="">
+                        <label>Primary Business Type</label>
+                        <input type="text" id="class-code" placeholder="Search by keyword, SIC code, NAICS code">
                         <span class="form-hint">Search by keyword, SIC code, NAICS code or segment</span>
                     </div>
                     <div class="form-group full-width">
@@ -330,40 +371,40 @@
         <!-- Step 2b: Additional Business Details -->
         <div class="form-step" id="step-2b">
             <div class="form-container">
-                <h2>Additional Business Details</h2>
+                <h2>Additional Details</h2>
                 <div class="form-grid">
                     <div class="form-group">
                         <label>Year Business Started</label>
-                        <input type="text" id="year-started" placeholder="">
+                        <input type="text" id="year-started" placeholder="2020">
                     </div>
                     <div class="form-group">
-                        <label>Annual revenue</label>
-                        <input type="text" id="annual-revenue" placeholder="">
+                        <label>Annual Revenue</label>
+                        <input type="text" id="annual-revenue" placeholder="$500,000">
                     </div>
                     <div class="form-group">
-                        <label>Number of employees</label>
-                        <input type="text" id="num-employees" placeholder="">
+                        <label>Number of Employees</label>
+                        <input type="text" id="num-employees" placeholder="10">
                     </div>
                     <div class="form-group">
-                        <label>Total payroll</label>
-                        <input type="text" id="total-payroll" placeholder="">
+                        <label>Total Payroll</label>
+                        <input type="text" id="total-payroll" placeholder="$300,000">
                     </div>
                     <div class="form-group full-width">
-                        <label>Any claims or losses for the last 3 years</label>
-                        <input type="text" id="claims-losses" placeholder="">
+                        <label>Any claims or losses in the last 3 years?</label>
+                        <input type="text" id="claims-losses" placeholder="Describe any claims or enter 'None'">
                     </div>
                     <div class="form-group full-width">
-                        <label>Describe business operation</label>
-                        <input type="text" id="business-operation" placeholder="">
+                        <label>Describe your business operations</label>
+                        <input type="text" id="business-operation" placeholder="Brief description of your business">
                     </div>
                     <div class="form-group full-width">
-                        <label>FEIN number</label>
-                        <input type="text" id="fein" placeholder="">
+                        <label>FEIN Number</label>
+                        <input type="text" id="fein" placeholder="XX-XXXXXXX">
                     </div>
                     <div class="form-group full-width">
-                        <label>Select Business / Legal Entity</label>
+                        <label>Legal Entity Type</label>
                         <select id="legal-entity">
-                            <option value="">Select...</option>
+                            <option value="">Select entity type...</option>
                             <option value="sole">Sole Proprietorship</option>
                             <option value="llc">LLC</option>
                             <option value="corp">Corporation</option>
@@ -372,15 +413,15 @@
                     </div>
                     <div class="form-group full-width">
                         <label>Website (Optional)</label>
-                        <input type="text" id="website" placeholder="">
+                        <input type="text" id="website" placeholder="https://yourcompany.com">
                     </div>
                     <div class="form-group">
-                        <label>Policy effective date</label>
-                        <input type="date" id="effective-date" placeholder="">
+                        <label>Policy Effective Date</label>
+                        <input type="date" id="effective-date">
                     </div>
                     <div class="form-group">
-                        <label>Policy expiration date</label>
-                        <input type="date" id="expiration-date" placeholder="">
+                        <label>Policy Expiration Date</label>
+                        <input type="date" id="expiration-date">
                     </div>
                 </div>
                 <div class="form-actions">
@@ -393,39 +434,39 @@
         <!-- Step 3: Location and Building -->
         <div class="form-step" id="step-3">
             <div class="form-container">
-                <h2>Location and Building</h2>
+                <h2>Location & Building</h2>
                 <div class="location-info">
-                    <p><strong>Primary Location:</strong> <span id="primary-location">278 Maplewood Drive, Willowbrook, NY 12567, USA</span></p>
-                    <p><strong>Class code:</strong> <span id="display-class-code">278 Maplewood Drive, Willowbrook, NY 12567, USA</span></p>
+                    <p><strong>Primary Location:</strong> <span id="primary-location">278 Maplewood Drive, Willowbrook, NY 12567</span></p>
+                    <p><strong>Class Code:</strong> <span id="display-class-code">Retail Store</span></p>
                 </div>
                 <div class="form-grid">
                     <div class="form-group">
-                        <label>Year build</label>
-                        <input type="text" id="year-build" placeholder="">
+                        <label>Year Built</label>
+                        <input type="text" id="year-build" placeholder="1990">
                     </div>
                     <div class="form-group">
-                        <label>Number of stories</label>
-                        <input type="text" id="num-stories" placeholder="">
+                        <label>Number of Stories</label>
+                        <input type="text" id="num-stories" placeholder="2">
                     </div>
                     <div class="form-group">
-                        <label>Total building area (sq. ft.)</label>
-                        <input type="text" id="building-area" placeholder="">
+                        <label>Total Building Area (sq. ft.)</label>
+                        <input type="text" id="building-area" placeholder="5,000">
                     </div>
                     <div class="form-group">
-                        <label>Area insurer occupied (sq. ft.)</label>
-                        <input type="text" id="area-occupied" placeholder="">
+                        <label>Area You Occupy (sq. ft.)</label>
+                        <input type="text" id="area-occupied" placeholder="3,000">
                     </div>
                     <div class="form-group">
-                        <label>Construction type</label>
+                        <label>Construction Type</label>
                         <select id="construction-type">
-                            <option value="">Select...</option>
+                            <option value="">Select type...</option>
                             <option value="frame">Frame</option>
                             <option value="masonry">Masonry</option>
                             <option value="fire-resistive">Fire Resistive</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Square footage occupied</label>
+                        <label>Percentage Occupied</label>
                         <select id="sq-footage-occupied">
                             <option value="">Select...</option>
                             <option value="0-25">0-25%</option>
@@ -435,7 +476,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Burglar alarm type</label>
+                        <label>Burglar Alarm Type</label>
                         <select id="burglar-alarm">
                             <option value="">Select...</option>
                             <option value="none">None</option>
@@ -444,7 +485,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Fire alarm type</label>
+                        <label>Fire Alarm Type</label>
                         <select id="fire-alarm">
                             <option value="">Select...</option>
                             <option value="none">None</option>
@@ -454,10 +495,10 @@
                     </div>
                 </div>
 
-                <h3 class="subsection-title">Underwriting questions</h3>
+                <h3 class="subsection-title">Underwriting Questions</h3>
                 <div class="form-grid">
                     <div class="form-group full-width">
-                        <label>Does the insured own the building?</label>
+                        <label>Do you own the building?</label>
                         <div class="radio-group">
                             <label class="radio-label">
                                 <input type="radio" name="own-building" value="yes"> Yes
@@ -468,7 +509,7 @@
                         </div>
                     </div>
                     <div class="form-group full-width">
-                        <label>Does this building have a sprinkler system?</label>
+                        <label>Does the building have a sprinkler system?</label>
                         <div class="radio-group">
                             <label class="radio-label">
                                 <input type="radio" name="sprinkler" value="yes"> Yes
@@ -507,13 +548,13 @@
         <div class="form-step" id="step-4">
             <div class="form-container">
                 <h2>Compare Quotes</h2>
-                <p class="compare-subtitle">Based on your information, here are your quote options from our carrier partners.</p>
+                <p class="compare-subtitle">Here are your personalized quotes from our trusted carrier partners.</p>
 
                 <div class="quotes-grid">
                     <div class="quote-card">
                         <div class="quote-header">
                             <span class="carrier-name">TRAVELERS</span>
-                            <span class="quote-badge recommended">Recommended</span>
+                            <span class="quote-badge recommended">Best Value</span>
                         </div>
                         <div class="quote-price">
                             <span class="price">$2,450</span>
@@ -525,7 +566,7 @@
                             <li>Business Income: Included</li>
                             <li>Deductible: $1,000</li>
                         </ul>
-                        <button class="btn-primary btn-full" onclick="selectQuote('travelers')">Select Quote</button>
+                        <button class="btn-primary btn-full" onclick="selectQuote('travelers')">Select This Quote</button>
                     </div>
 
                     <div class="quote-card">
@@ -542,7 +583,7 @@
                             <li>Business Income: Included</li>
                             <li>Deductible: $500</li>
                         </ul>
-                        <button class="btn-outline btn-full" onclick="selectQuote('hartford')">Select Quote</button>
+                        <button class="btn-outline btn-full" onclick="selectQuote('hartford')">Select This Quote</button>
                     </div>
 
                     <div class="quote-card">
@@ -559,7 +600,7 @@
                             <li>Business Income: $50,000</li>
                             <li>Deductible: $1,500</li>
                         </ul>
-                        <button class="btn-outline btn-full" onclick="selectQuote('next')">Select Quote</button>
+                        <button class="btn-outline btn-full" onclick="selectQuote('next')">Select This Quote</button>
                     </div>
                 </div>
 
@@ -573,8 +614,8 @@
         <!-- Step 5: Review and Submit -->
         <div class="form-step" id="step-5">
             <div class="form-container">
-                <h2>Review and Submit</h2>
-                <p class="review-subtitle">Please review your information before submitting.</p>
+                <h2>Review & Submit</h2>
+                <p class="review-subtitle">Please review your information before submitting your application.</p>
 
                 <div class="review-sections">
                     <div class="review-section">
@@ -613,10 +654,10 @@
             <nav class="footer-links">
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms of Service</a>
-                <a href="#">Accessibility Statement</a>
+                <a href="#">Accessibility</a>
                 <a href="#">About Us</a>
             </nav>
-            <div class="footer-copyright">&copy;2024, All right reserved.</div>
+            <div class="footer-copyright">2024 Squote. All rights reserved.</div>
         </div>
     </footer>
 
