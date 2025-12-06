@@ -8,74 +8,127 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <nav class="nav-container">
-            <div class="logo">
-                <span class="logo-icon">🛡️</span>
-                <span class="logo-text">InsureCompare</span>
+    <div class="app-container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <span class="logo-text">IC</span>
             </div>
-            <ul class="nav-links">
-                <li><a href="#" class="active" data-section="home">Home</a></li>
-                <li><a href="#" data-section="auto">Auto Insurance</a></li>
-                <li><a href="#" data-section="home-insurance">Home Insurance</a></li>
-                <li><a href="#" data-section="life">Life Insurance</a></li>
-                <li><a href="#" data-section="health">Health Insurance</a></li>
-            </ul>
-            <button class="mobile-menu-btn">☰</button>
-        </nav>
-    </header>
+            <nav class="sidebar-nav">
+                <button class="nav-icon active" data-section="home" title="Dashboard">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="7" height="7" rx="1"/>
+                        <rect x="14" y="3" width="7" height="7" rx="1"/>
+                        <rect x="3" y="14" width="7" height="7" rx="1"/>
+                        <rect x="14" y="14" width="7" height="7" rx="1"/>
+                    </svg>
+                </button>
+                <button class="nav-icon" data-section="policies" title="My Policies">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                </button>
+                <button class="nav-icon" data-section="settings" title="Settings">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="3"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                </button>
+            </nav>
+            <div class="sidebar-categories">
+                <h3>INSURANCE</h3>
+                <ul class="category-list">
+                    <li class="category-item active" data-type="all">
+                        <span class="category-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                <path d="M3 9h18M9 21V9"/>
+                            </svg>
+                        </span>
+                        <span>All Policies</span>
+                    </li>
+                    <li class="category-item" data-type="auto">
+                        <span class="category-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 17h14M5 17a2 2 0 01-2-2v-4a1 1 0 011-1h1l2-4h10l2 4h1a1 1 0 011 1v4a2 2 0 01-2 2M5 17a2 2 0 00-2 2v1h2M19 17a2 2 0 012 2v1h-2"/>
+                                <circle cx="7.5" cy="17" r="1.5"/>
+                                <circle cx="16.5" cy="17" r="1.5"/>
+                            </svg>
+                        </span>
+                        <span>Auto</span>
+                    </li>
+                    <li class="category-item" data-type="home">
+                        <span class="category-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                                <polyline points="9 22 9 12 15 12 15 22"/>
+                            </svg>
+                        </span>
+                        <span>Home</span>
+                    </li>
+                    <li class="category-item" data-type="life">
+                        <span class="category-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                            </svg>
+                        </span>
+                        <span>Life</span>
+                    </li>
+                    <li class="category-item" data-type="health">
+                        <span class="category-icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </span>
+                        <span>Health</span>
+                    </li>
+                </ul>
+            </div>
+        </aside>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="hero">
-            <div class="hero-content">
-                <h1>Compare Insurance Policies & Save</h1>
-                <p>Find the best coverage at the lowest prices from top insurance providers</p>
-                <div class="search-box">
-                    <select id="insurance-type">
-                        <option value="all">All Insurance Types</option>
-                        <option value="auto">Auto Insurance</option>
-                        <option value="home">Home Insurance</option>
-                        <option value="life">Life Insurance</option>
-                        <option value="health">Health Insurance</option>
-                    </select>
-                    <input type="text" id="search-input" placeholder="Search companies or policies...">
-                    <button id="search-btn">Compare Now</button>
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Header -->
+            <header class="main-header">
+                <div class="search-container">
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"/>
+                        <path d="M21 21l-4.35-4.35"/>
+                    </svg>
+                    <input type="text" id="search-input" placeholder="Search policies, companies...">
                 </div>
-            </div>
-        </section>
+                <div class="header-actions">
+                    <button class="notification-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/>
+                        </svg>
+                    </button>
+                    <div class="user-avatar">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2364748b'%3E%3Cpath d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z'/%3E%3C/svg%3E" alt="User">
+                    </div>
+                </div>
+            </header>
 
-        <!-- Stats Section -->
-        <section class="stats">
-            <div class="stat-item">
-                <span class="stat-number">50+</span>
-                <span class="stat-label">Insurance Companies</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">200+</span>
-                <span class="stat-label">Policy Options</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">$500</span>
-                <span class="stat-label">Average Savings</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number">1M+</span>
-                <span class="stat-label">Happy Customers</span>
-            </div>
-        </section>
+            <!-- Content Area -->
+            <div class="content-area">
+                <div class="content-header">
+                    <h1>Insurance Compare</h1>
+                    <button class="add-device-btn" id="filter-toggle">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/>
+                        </svg>
+                        Filters
+                    </button>
+                </div>
 
-        <!-- Filters Section -->
-        <section class="filters-section">
-            <div class="filters-container">
-                <h2>Filter Policies</h2>
-                <div class="filters">
+                <!-- Filter Panel (Collapsible) -->
+                <div class="filter-panel" id="filter-panel">
                     <div class="filter-group">
                         <label>Price Range (Monthly)</label>
-                        <div class="price-range">
-                            <input type="number" id="min-price" placeholder="Min $" min="0">
-                            <span>to</span>
-                            <input type="number" id="max-price" placeholder="Max $" min="0">
+                        <div class="price-inputs">
+                            <input type="number" id="min-price" placeholder="Min $">
+                            <span>-</span>
+                            <input type="number" id="max-price" placeholder="Max $">
                         </div>
                     </div>
                     <div class="filter-group">
@@ -105,152 +158,128 @@
                             <option value="name">Company Name</option>
                         </select>
                     </div>
-                    <button id="apply-filters" class="filter-btn">Apply Filters</button>
-                    <button id="reset-filters" class="filter-btn secondary">Reset</button>
+                    <div class="filter-actions">
+                        <button id="apply-filters" class="btn-apply">Apply</button>
+                        <button id="reset-filters" class="btn-reset">Reset</button>
+                    </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Insurance Cards Section -->
-        <section class="insurance-cards-section">
-            <div class="section-header">
-                <h2>Available Policies</h2>
-                <span id="results-count" class="results-count">Showing all policies</span>
+                <!-- Policy Section -->
+                <div class="policy-section">
+                    <div class="section-title">
+                        <h2 id="section-heading">ALL POLICIES</h2>
+                        <span id="results-count" class="results-badge">27 policies</span>
+                    </div>
+                    <div id="insurance-grid" class="policy-grid">
+                        <!-- Cards will be dynamically populated -->
+                    </div>
+                </div>
             </div>
-            <div id="insurance-grid" class="insurance-grid">
-                <!-- Cards will be dynamically populated -->
-            </div>
-        </section>
+        </main>
 
-        <!-- Company Comparison Table -->
-        <section class="comparison-section">
-            <h2>Quick Comparison</h2>
-            <div class="comparison-table-wrapper">
-                <table id="comparison-table" class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Company</th>
-                            <th>Type</th>
-                            <th>Coverage</th>
-                            <th>Monthly Premium</th>
-                            <th>Deductible</th>
-                            <th>Rating</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="comparison-tbody">
-                        <!-- Table rows will be dynamically populated -->
-                    </tbody>
-                </table>
-            </div>
-        </section>
+        <!-- Right Sidebar -->
+        <aside class="right-sidebar">
+            <h2>Quick Stats</h2>
 
-        <!-- Featured Companies -->
-        <section class="featured-companies">
-            <h2>Trusted Insurance Partners</h2>
-            <div class="company-logos">
-                <div class="company-logo">
-                    <span class="company-icon">🏢</span>
-                    <span>StateFarm</span>
+            <!-- Savings Calculator -->
+            <div class="stats-card">
+                <div class="stats-header">
+                    <span class="stats-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"/>
+                            <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                        </svg>
+                    </span>
+                    <span>POTENTIAL SAVINGS</span>
                 </div>
-                <div class="company-logo">
-                    <span class="company-icon">🦎</span>
-                    <span>Geico</span>
+                <div class="stats-value">
+                    <span class="big-number">$500</span>
+                    <span class="sub-text">/year average</span>
                 </div>
-                <div class="company-logo">
-                    <span class="company-icon">☂️</span>
-                    <span>Allstate</span>
-                </div>
-                <div class="company-logo">
-                    <span class="company-icon">🔔</span>
-                    <span>Liberty Mutual</span>
-                </div>
-                <div class="company-logo">
-                    <span class="company-icon">🏛️</span>
-                    <span>Progressive</span>
-                </div>
-                <div class="company-logo">
-                    <span class="company-icon">🌟</span>
-                    <span>Nationwide</span>
+                <div class="stats-toggle">
+                    <span>Show comparison</span>
+                    <label class="toggle">
+                        <input type="checkbox" id="show-comparison">
+                        <span class="slider"></span>
+                    </label>
                 </div>
             </div>
-        </section>
 
-        <!-- How It Works -->
-        <section class="how-it-works">
-            <h2>How It Works</h2>
-            <div class="steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Select Insurance Type</h3>
-                    <p>Choose the type of insurance you need - auto, home, life, or health.</p>
+            <!-- Market Overview -->
+            <div class="market-card">
+                <div class="market-header">
+                    <span>MARKET OVERVIEW</span>
+                    <span class="market-status active">Live Data</span>
                 </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Compare Policies</h3>
-                    <p>Review coverage options, prices, and ratings from multiple providers.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Get a Quote</h3>
-                    <p>Request personalized quotes from your preferred insurance companies.</p>
-                </div>
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Save Money</h3>
-                    <p>Choose the best policy and start saving on your insurance today.</p>
+                <div class="market-stats">
+                    <div class="market-stat">
+                        <span class="stat-label">Companies</span>
+                        <span class="stat-value">50+</span>
+                    </div>
+                    <div class="market-stat">
+                        <span class="stat-label">Policies</span>
+                        <span class="stat-value">200+</span>
+                    </div>
                 </div>
             </div>
-        </section>
-    </main>
+
+            <!-- Top Providers -->
+            <div class="providers-section">
+                <h3>TOP PROVIDERS</h3>
+                <ul class="provider-list" id="provider-list">
+                    <li class="provider-item">
+                        <span class="provider-name">State Farm</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"/>
+                        </svg>
+                    </li>
+                    <li class="provider-item">
+                        <span class="provider-name">Geico</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"/>
+                        </svg>
+                    </li>
+                    <li class="provider-item">
+                        <span class="provider-name">Progressive</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"/>
+                        </svg>
+                    </li>
+                    <li class="provider-item">
+                        <span class="provider-name">Allstate</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"/>
+                        </svg>
+                    </li>
+                    <li class="provider-item">
+                        <span class="provider-name">USAA</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="9 18 15 12 9 6"/>
+                        </svg>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+    </div>
 
     <!-- Policy Detail Modal -->
     <div id="policy-modal" class="modal">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
+            <button class="close-modal">&times;</button>
             <div id="modal-body">
                 <!-- Modal content will be populated dynamically -->
             </div>
         </div>
     </div>
 
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>InsureCompare</h4>
-                <p>Your trusted source for comparing insurance policies from top providers.</p>
-            </div>
-            <div class="footer-section">
-                <h4>Insurance Types</h4>
-                <ul>
-                    <li><a href="#">Auto Insurance</a></li>
-                    <li><a href="#">Home Insurance</a></li>
-                    <li><a href="#">Life Insurance</a></li>
-                    <li><a href="#">Health Insurance</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Resources</h4>
-                <ul>
-                    <li><a href="#">Insurance Guide</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Legal</h4>
-                <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Disclaimer</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 InsureCompare. All rights reserved.</p>
-        </div>
-    </footer>
+    <!-- Mobile Menu Toggle -->
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+    </button>
 
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>
