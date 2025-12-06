@@ -1,4 +1,4 @@
-// Insurance Comparison Website - Main Application Logic
+// Insurance Comparison App - Modern Dark Theme
 
 document.addEventListener('DOMContentLoaded', function() {
     // State management
@@ -14,15 +14,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // DOM Elements
     const insuranceGrid = document.getElementById('insurance-grid');
-    const comparisonTbody = document.getElementById('comparison-tbody');
     const resultsCount = document.getElementById('results-count');
+    const sectionHeading = document.getElementById('section-heading');
     const modal = document.getElementById('policy-modal');
     const modalBody = document.getElementById('modal-body');
 
     // Filter Elements
-    const insuranceTypeSelect = document.getElementById('insurance-type');
+    const filterToggle = document.getElementById('filter-toggle');
+    const filterPanel = document.getElementById('filter-panel');
     const searchInput = document.getElementById('search-input');
-    const searchBtn = document.getElementById('search-btn');
     const minPriceInput = document.getElementById('min-price');
     const maxPriceInput = document.getElementById('max-price');
     const coverageLevelSelect = document.getElementById('coverage-level');
@@ -31,55 +31,64 @@ document.addEventListener('DOMContentLoaded', function() {
     const applyFiltersBtn = document.getElementById('apply-filters');
     const resetFiltersBtn = document.getElementById('reset-filters');
 
-    // Navigation
-    const navLinks = document.querySelectorAll('.nav-links a');
-    const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-    const navLinksContainer = document.querySelector('.nav-links');
+    // Navigation Elements
+    const categoryItems = document.querySelectorAll('.category-item');
+    const navIcons = document.querySelectorAll('.nav-icon');
+    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+    const sidebar = document.querySelector('.sidebar');
 
     // Initialize the application
     function init() {
-        renderInsuranceCards(insuranceData);
-        renderComparisonTable(insuranceData);
+        renderPolicyCards(insuranceData);
         setupEventListeners();
+        updateResultsCount(insuranceData.length);
     }
 
     // Setup event listeners
     function setupEventListeners() {
-        // Search functionality
-        searchBtn.addEventListener('click', handleSearch);
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') handleSearch();
+        // Filter toggle
+        filterToggle.addEventListener('click', () => {
+            filterPanel.classList.toggle('active');
         });
 
-        // Insurance type dropdown in hero
-        insuranceTypeSelect.addEventListener('change', function() {
-            currentFilters.type = this.value;
-            applyFilters();
+        // Search functionality
+        searchInput.addEventListener('input', debounce(handleSearch, 300));
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleSearch();
+            }
         });
 
         // Filter controls
         applyFiltersBtn.addEventListener('click', applyFilters);
         resetFiltersBtn.addEventListener('click', resetFilters);
 
-        // Sort dropdown
+        // Sort dropdown - immediate update
         sortBySelect.addEventListener('change', function() {
             currentFilters.sortBy = this.value;
             applyFilters();
         });
 
-        // Navigation links
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const section = this.dataset.section;
-                handleNavigation(section);
+        // Category navigation
+        categoryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const type = this.dataset.type;
+                handleCategoryClick(type, this);
             });
         });
 
-        // Mobile menu
-        mobileMenuBtn.addEventListener('click', function() {
-            navLinksContainer.classList.toggle('active');
+        // Sidebar nav icons
+        navIcons.forEach(icon => {
+            icon.addEventListener('click', function() {
+                navIcons.forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+            });
         });
+
+        // Mobile menu toggle
+        if (mobileMenuToggle) {
+            mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+        }
 
         // Modal close
         document.querySelector('.close-modal').addEventListener('click', closeModal);
@@ -93,41 +102,55 @@ document.addEventListener('DOMContentLoaded', function() {
                 closeModal();
             }
         });
+
+        // Provider list click
+        document.querySelectorAll('.provider-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const companyName = this.querySelector('.provider-name').textContent;
+                searchInput.value = companyName;
+                currentFilters.search = companyName.toLowerCase();
+                applyFilters();
+            });
+        });
+    }
+
+    // Debounce function for search
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
     }
 
     // Handle search
     function handleSearch() {
         currentFilters.search = searchInput.value.trim().toLowerCase();
-        currentFilters.type = insuranceTypeSelect.value;
         applyFilters();
     }
 
-    // Handle navigation
-    function handleNavigation(section) {
-        navLinks.forEach(link => link.classList.remove('active'));
-        event.target.classList.add('active');
+    // Handle category click
+    function handleCategoryClick(type, element) {
+        categoryItems.forEach(item => item.classList.remove('active'));
+        element.classList.add('active');
 
-        if (section === 'home') {
-            currentFilters.type = 'all';
-            insuranceTypeSelect.value = 'all';
-        } else if (section === 'auto') {
-            currentFilters.type = 'auto';
-            insuranceTypeSelect.value = 'auto';
-        } else if (section === 'home-insurance') {
-            currentFilters.type = 'home';
-            insuranceTypeSelect.value = 'home';
-        } else if (section === 'life') {
-            currentFilters.type = 'life';
-            insuranceTypeSelect.value = 'life';
-        } else if (section === 'health') {
-            currentFilters.type = 'health';
-            insuranceTypeSelect.value = 'health';
-        }
+        currentFilters.type = type;
+
+        // Update section heading
+        const headings = {
+            'all': 'ALL POLICIES',
+            'auto': 'AUTO INSURANCE',
+            'home': 'HOME INSURANCE',
+            'life': 'LIFE INSURANCE',
+            'health': 'HEALTH INSURANCE'
+        };
+        sectionHeading.textContent = headings[type] || 'ALL POLICIES';
 
         applyFilters();
-
-        // Scroll to filters section
-        document.querySelector('.filters-section').scrollIntoView({ behavior: 'smooth' });
     }
 
     // Apply all filters
@@ -177,8 +200,7 @@ document.addEventListener('DOMContentLoaded', function() {
         filteredData = sortData(filteredData, currentFilters.sortBy);
 
         // Render results
-        renderInsuranceCards(filteredData);
-        renderComparisonTable(filteredData);
+        renderPolicyCards(filteredData);
         updateResultsCount(filteredData.length);
     }
 
@@ -207,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Reset all filters
     function resetFilters() {
         currentFilters = {
-            type: 'all',
+            type: currentFilters.type, // Keep current category
             minPrice: null,
             maxPrice: null,
             coverage: 'all',
@@ -217,7 +239,6 @@ document.addEventListener('DOMContentLoaded', function() {
         };
 
         // Reset form inputs
-        insuranceTypeSelect.value = 'all';
         searchInput.value = '';
         minPriceInput.value = '';
         maxPriceInput.value = '';
@@ -225,29 +246,19 @@ document.addEventListener('DOMContentLoaded', function() {
         ratingFilterSelect.value = 'all';
         sortBySelect.value = 'price-low';
 
-        // Reset nav links
-        navLinks.forEach(link => link.classList.remove('active'));
-        document.querySelector('[data-section="home"]').classList.add('active');
-
         applyFilters();
     }
 
     // Update results count display
     function updateResultsCount(count) {
-        if (count === insuranceData.length) {
-            resultsCount.textContent = 'Showing all policies';
-        } else if (count === 0) {
-            resultsCount.textContent = 'No policies found';
-        } else {
-            resultsCount.textContent = `Showing ${count} polic${count === 1 ? 'y' : 'ies'}`;
-        }
+        resultsCount.textContent = `${count} ${count === 1 ? 'policy' : 'policies'}`;
     }
 
-    // Render insurance cards
-    function renderInsuranceCards(data) {
+    // Render policy cards in new style
+    function renderPolicyCards(data) {
         if (data.length === 0) {
             insuranceGrid.innerHTML = `
-                <div class="no-results">
+                <div class="no-results fade-in">
                     <h3>No policies found</h3>
                     <p>Try adjusting your filters or search terms</p>
                 </div>
@@ -255,75 +266,48 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
-        insuranceGrid.innerHTML = data.map(policy => `
-            <div class="insurance-card fade-in" data-id="${policy.id}">
-                <div class="card-header">
-                    <div class="company-info">
-                        <div class="company-logo-icon">${policy.icon}</div>
-                        <div>
-                            <div class="company-name">${policy.company}</div>
-                            <div class="policy-type">${policy.policyName}</div>
-                        </div>
+        insuranceGrid.innerHTML = data.map((policy, index) => {
+            const isActive = index < 3; // First 3 cards are "active" for visual effect
+            return `
+                <div class="policy-card fade-in ${isActive ? 'active' : ''}" data-id="${policy.id}" onclick="viewPolicyDetails(${policy.id})">
+                    <div class="card-icon">${policy.icon}</div>
+                    <div class="card-company">${policy.company}</div>
+                    <div class="card-policy-name">${policy.policyName}</div>
+                    <div class="card-price">
+                        <span class="amount">${formatCurrency(policy.monthlyPremium)}</span>
+                        <span class="period">/month</span>
                     </div>
-                    <span class="card-badge ${policy.coverage}">${policy.coverage}</span>
-                </div>
-                <div class="card-body">
-                    <div class="price-section">
-                        <div class="price">
-                            ${formatCurrency(policy.monthlyPremium)}<span>/month</span>
+                    <div class="card-meta">
+                        <div class="card-rating">
+                            <span>${generateStars(policy.rating)}</span>
+                            <span>${policy.rating}</span>
                         </div>
-                        <div class="rating">
-                            <span class="stars">${generateStars(policy.rating)}</span>
-                            <span class="rating-value">${policy.rating}</span>
-                        </div>
+                        <span class="card-badge ${policy.coverage}">${policy.coverage}</span>
                     </div>
-                    <ul class="features-list">
-                        ${policy.features.slice(0, 4).map(feature => `
-                            <li><span class="check">✓</span> ${feature}</li>
-                        `).join('')}
-                    </ul>
+                    <div class="card-status ${isActive ? 'active' : ''}">
+                        ${isActive ? 'Popular choice' : `${policy.features.length} features included`}
+                    </div>
                 </div>
-                <div class="card-footer">
-                    <button class="btn-primary" onclick="viewPolicyDetails(${policy.id})">View Details</button>
-                    <button class="btn-secondary" onclick="getQuote(${policy.id})">Get Quote</button>
-                </div>
-            </div>
-        `).join('');
+            `;
+        }).join('');
     }
 
-    // Render comparison table
-    function renderComparisonTable(data) {
-        const tableData = data.slice(0, 10); // Show top 10 in table
+    // Toggle mobile menu
+    function toggleMobileMenu() {
+        sidebar.classList.toggle('active');
 
-        comparisonTbody.innerHTML = tableData.map(policy => `
-            <tr>
-                <td>
-                    <div class="company-cell">
-                        <span class="table-logo">${policy.icon}</span>
-                        <div>
-                            <strong>${policy.company}</strong>
-                            <br><small>${policy.policyName}</small>
-                        </div>
-                    </div>
-                </td>
-                <td><span class="type-badge ${policy.type}">${capitalizeFirst(policy.type)}</span></td>
-                <td><span class="card-badge ${policy.coverage}">${capitalizeFirst(policy.coverage)}</span></td>
-                <td><strong>${formatCurrency(policy.monthlyPremium)}</strong>/mo</td>
-                <td>${formatCurrency(policy.deductible)}</td>
-                <td>
-                    <span class="stars">${generateStars(policy.rating)}</span>
-                    ${policy.rating}
-                </td>
-                <td>
-                    <button class="table-btn" onclick="viewPolicyDetails(${policy.id})">Details</button>
-                </td>
-            </tr>
-        `).join('');
-    }
-
-    // Helper function to capitalize first letter
-    function capitalizeFirst(str) {
-        return str.charAt(0).toUpperCase() + str.slice(1);
+        // Create/toggle overlay
+        let overlay = document.querySelector('.sidebar-overlay');
+        if (!overlay) {
+            overlay = document.createElement('div');
+            overlay.className = 'sidebar-overlay';
+            document.body.appendChild(overlay);
+            overlay.addEventListener('click', () => {
+                sidebar.classList.remove('active');
+                overlay.classList.remove('active');
+            });
+        }
+        overlay.classList.toggle('active');
     }
 
     // View policy details (modal)
@@ -340,11 +324,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         modalBody.innerHTML = `
             <div class="modal-header">
-                <div class="company-info" style="display: flex; gap: 1rem; align-items: center;">
-                    <div class="company-logo-icon" style="font-size: 2.5rem;">${policy.icon}</div>
+                <div style="display: flex; gap: 1rem; align-items: center;">
+                    <span style="font-size: 2.5rem;">${policy.icon}</span>
                     <div>
                         <h2>${policy.company}</h2>
-                        <p style="color: var(--text-light);">${policy.policyName}</p>
+                        <p>${policy.policyName}</p>
                     </div>
                 </div>
             </div>
@@ -352,20 +336,20 @@ document.addEventListener('DOMContentLoaded', function() {
                 <div class="modal-section">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
                         <div>
-                            <span style="font-size: 2.5rem; font-weight: 700; color: var(--primary-color);">
+                            <span style="font-size: 2rem; font-weight: 700; color: var(--accent-cyan);">
                                 ${formatCurrency(policy.monthlyPremium)}
                             </span>
-                            <span style="color: var(--text-light);">/month</span>
+                            <span style="color: var(--text-muted);">/month</span>
                         </div>
                         <div style="text-align: right;">
-                            <div class="rating" style="font-size: 1.2rem;">
-                                <span class="stars">${generateStars(policy.rating)}</span>
-                                <span class="rating-value">${policy.rating}</span>
+                            <div class="card-rating" style="font-size: 1.1rem;">
+                                <span>${generateStars(policy.rating)}</span>
+                                <span style="margin-left: 0.25rem; font-weight: 600;">${policy.rating}</span>
                             </div>
-                            <small style="color: var(--text-light);">${policy.reviewCount.toLocaleString()} reviews</small>
+                            <small style="color: var(--text-muted);">${policy.reviewCount.toLocaleString()} reviews</small>
                         </div>
                     </div>
-                    <p style="color: var(--text-dark); line-height: 1.6;">${policy.description}</p>
+                    <p style="color: var(--text-secondary); line-height: 1.6;">${policy.description}</p>
                 </div>
 
                 <div class="modal-section">
@@ -387,7 +371,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <h3>Key Features</h3>
                     <ul class="features-list">
                         ${policy.features.map(feature => `
-                            <li><span class="check">✓</span> ${feature}</li>
+                            <li><span class="check">&#10003;</span> ${feature}</li>
                         `).join('')}
                     </ul>
                 </div>
@@ -396,7 +380,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <h3>Highlights</h3>
                     <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
                         ${policy.highlights.map(highlight => `
-                            <span style="background: var(--bg-light); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.9rem;">
+                            <span style="background: var(--bg-card); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.85rem; color: var(--text-secondary); border: 1px solid var(--border-color);">
                                 ${highlight}
                             </span>
                         `).join('')}
@@ -451,9 +435,41 @@ document.addEventListener('DOMContentLoaded', function() {
         // Close modal if open
         closeModal();
 
-        // Show a simple alert (in a real app, this would open a quote form)
-        alert(`Thank you for your interest in ${policy.company}'s ${policy.policyName}!\n\nIn a live application, you would be redirected to a quote form where you can provide your information and receive a personalized quote.\n\nEstimated monthly premium: ${formatCurrency(policy.monthlyPremium)}`);
+        // Show a notification-style message
+        showNotification(`Thank you for your interest in ${policy.company}'s ${policy.policyName}! Estimated monthly premium: ${formatCurrency(policy.monthlyPremium)}`);
     };
+
+    // Show notification
+    function showNotification(message) {
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+            position: fixed;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--bg-card);
+            border: 1px solid var(--accent-cyan);
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+            z-index: 2000;
+            max-width: 90%;
+            text-align: center;
+            animation: fadeIn 0.3s ease-out;
+        `;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+
+        // Remove after 4 seconds
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateX(-50%) translateY(10px)';
+            notification.style.transition = 'all 0.3s ease';
+            setTimeout(() => notification.remove(), 300);
+        }, 4000);
+    }
 
     // Close modal
     window.closeModal = function() {
